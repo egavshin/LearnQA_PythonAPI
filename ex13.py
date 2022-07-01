@@ -22,9 +22,9 @@ class TestUserAgent:
 
         print(response_dict)
 
-        check.equal(expected_values['platform'], response_dict['platform']), f"The 'platform' specified incorrectly. Now '{response_dict['platform']}', but should be '{expected_values['platform']}' "
-        check.equal(expected_values['browser'], response_dict['browser']), f"The 'platform' specified incorrectly. Now '{response_dict['browser']}', but should be '{expected_values['browser']}' "
-        check.equal(expected_values['device'], response_dict['device']), f"The 'platform' specified incorrectly. Now '{response_dict['device']}', but should be '{expected_values['device']}' "
+        check.equal(expected_values['platform'], response_dict['platform'])
+        check.equal(expected_values['browser'], response_dict['browser'])
+        check.equal(expected_values['device'], response_dict['device'])
 
        # assert expected_values['platform'] in response_dict['platform'], f"The 'platform' specified incorrectly. Now '{response_dict['platform']}', but should be '{expected_values['platform']}' "
        # assert expected_values['browser'] in response_dict['browser'], f"The 'browser' specified incorrectly. Now '{response_dict['browser']}', but should be '{expected_values['browser']}'"
