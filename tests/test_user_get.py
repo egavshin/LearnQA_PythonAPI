@@ -19,7 +19,6 @@ class TestUserGet(BaseCase):
         }
 
         response1 = MyRequests.post("/user/login", data=data)
-        print(response1)
 
         auth_sid = self.get_cookie(response1, "auth_sid")
         token = self.get_header(response1, "x-csrf-token")
@@ -30,7 +29,6 @@ class TestUserGet(BaseCase):
             headers={"x-csrf-token": token},
             cookies={"auth_sid": auth_sid}
         )
-        print(response2.json())
 
         expected_fields = ["username", "email", "firstName", "lastName"]
         Assertions.assert_json_has_keys(response2, expected_fields)
