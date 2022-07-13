@@ -1,6 +1,7 @@
 from requests import Response
 import json
 
+
 class Assertions:
     @staticmethod
     def assert_json_value_by_name(response: Response, name, expected_value, error_message):
@@ -48,4 +49,8 @@ class Assertions:
     @staticmethod
     def assert_decoded_content(response: Response, expected_content, encoding_type):
         assert response.content.decode(encoding_type) == expected_content, \
-             f"Unexpected response content! Expected '{expected_content}'. Actual '{response.content.decode(encoding_type)}'"
+            f"Unexpected response content! Expected '{expected_content}'. Actual '{response.content.decode(encoding_type)}' "
+
+    @staticmethod
+    def assert_text(response: Response, expected_text):
+        assert response.text == expected_text, f"Unexpected response! Expected '{expected_text}'. Actual '{response.text}' "

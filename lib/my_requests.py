@@ -37,13 +37,17 @@ class MyRequests:
         Logger.add_request(url, data, headers, cookies, method)
 
         if method == "GET":
-            response = requests.get(url, params=data, headers=headers, cookies=cookies)
+            with allure.step(f"GET response"):
+                response = requests.get(url, params=data, headers=headers, cookies=cookies)
         elif method == "POST":
-            response = requests.post(url, data=data, headers=headers, cookies=cookies)
+            with allure.step(f"POST response"):
+                response = requests.post(url, data=data, headers=headers, cookies=cookies)
         elif method == "PUT":
-            response = requests.put(url, data=data, headers=headers, cookies=cookies)
+            with allure.step(f"PUT response"):
+                response = requests.put(url, data=data, headers=headers, cookies=cookies)
         elif method == "DELETE":
-            response = requests.delete(url, data=data, headers=headers, cookies=cookies)
+            with allure.step(f"DELETE response"):
+                response = requests.delete(url, data=data, headers=headers, cookies=cookies)
         else:
             raise Exception(f"Bad HTTP method '{method}' was received")
 
